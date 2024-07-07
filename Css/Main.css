@@ -1,0 +1,109 @@
+.Wrapper {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.box {
+  width: 80%;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.box:hover {
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+}
+
+.box1,
+.box3,
+.box5,
+.box7,
+.box9,
+.box11 {
+  justify-self: end;
+}
+
+.box1 {
+  background-image: url(../Images/ezgif-5-ba293a475d.gif);
+}
+
+.box2 {
+  background-image: url(../Images/pexels-cottonbro-5054356.jpg);
+}
+
+.box3 {
+  background-image: url(../Images/pexels-tima-miroshnichenko-7567486.jpg);
+}
+
+.box4 {
+  background-image: url(../Images/pexels-harper-sunday-11751103.jpg);
+}
+
+.box5 {
+  background-image: url(../Images/pexels-lastly-699122.jpg);
+}
+
+.box6 {
+  background-image: url(../Images/apple-dust-apple-apple-dust-dust.gif);
+}
+
+.box7 {
+  background-image: url(../Images/pexels-pixabay-164903.jpg);
+}
+
+.box8 {
+  background-image: url(../Images/pexels-pixabay-256450.jpg);
+}
+
+.box9 {
+  background-image: url(../Images/pexels-pripicart-457445.jpg);
+}
+
+.box10 {
+  background-image: url(../Images/pexels-sam-tan-165514541-11710905.jpg);
+}
+
+.box11 {
+  background-image: url(../Images/pexels-shvetsa-3987110.jpg);
+}
+
+.box12 {
+  background-image: url(../Images/pexels-fotios-photos-1438190.jpg);
+}
+
+/*Components*/
+.CheckOut {
+  rotate: 45deg;
+  background-color: var(--Back-Ground-Color);
+  border-radius: 50%;
+  padding: 10px;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  cursor: pointer;
+}
+/*End of Components*/
+
+@media screen and (max-width: 800px) {
+  .Wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .box {
+    justify-self: center;
+  }
+}
