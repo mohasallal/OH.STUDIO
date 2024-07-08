@@ -1,5 +1,12 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Wrapper {
   width: 100%;
+  max-width: 1400px;
   height: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -10,22 +17,37 @@
 }
 
 .box {
-  width: 80%;
+  width: 90%;
   height: auto;
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
   border-radius: 15px;
   margin-bottom: 15px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   box-sizing: border-box;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
-.box:hover {
-  transition-duration: 0.25s;
-  transition-timing-function: ease-out;
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: inherit;
+  z-index: 0;
+  transition: backdrop-filter 0.25s ease-out, background-color 0.25s ease-out;
+}
+
+.box:hover::before {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .box1,
@@ -87,16 +109,54 @@
 
 /*Components*/
 .CheckOut {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out, visibility 0.25s ease-out,
+    transform 0.25s ease-out;
   rotate: 45deg;
   background-color: var(--Back-Ground-Color);
   border-radius: 50%;
   padding: 10px;
   position: absolute;
-  top: 1%;
-  right: 1%;
+  top: 2%;
+  right: 2%;
+  transform: translateX(0px) translateY(20px);
   cursor: pointer;
+  z-index: 2;
+}
+
+.box:hover > .CheckOut {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 /*End of Components*/
+
+.sub__title {
+  color: var(--Back-Ground-Color);
+  font-size: 16px;
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.box:hover > .sub__title {
+  opacity: 1;
+  visibility: visible;
+  transition-duration: 0.25s;
+}
+
+.Mobile__subTitle {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .sub__title {
+    font-size: 12px;
+  }
+}
 
 @media screen and (max-width: 800px) {
   .Wrapper {
@@ -105,5 +165,26 @@
 
   .box {
     justify-self: center;
+  }
+
+  .Mobile__subTitle {
+    display: block;
+    padding-left: 7.5%;
+    margin-top: 0;
+  }
+
+  .box:hover::before {
+    backdrop-filter: blur(0);
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .box:hover > .CheckOut {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .box:hover > .sub__title {
+    opacity: 0;
+    visibility: hidden;
   }
 }

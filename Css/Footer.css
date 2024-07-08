@@ -1,0 +1,72 @@
+:root {
+  --Back-Ground-Color: #ffffff;
+  --Font-color: #000000;
+  --Contact-color: #7f7f7f;
+  --Links-Background-color: #e8e5e480;
+}
+
+footer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.Footer__Title {
+  text-align: center;
+  font-weight: 500;
+  margin: 200px auto 250px;
+}
+
+.Footer__Title h2 {
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+.small__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.gray a {
+  color: var(--Contact-color);
+  text-decoration: none;
+  font-size: 2.5em;
+}
+
+.gray a:hover {
+  color: #979797c4;
+  transition-duration: 0.3s;
+}
+
+.Footer__Links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.right a {
+  text-decoration: none;
+  margin: 0 10px;
+  color: #000000;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .Footer__Links {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left {
+    flex-direction: column;
+  }
+}
